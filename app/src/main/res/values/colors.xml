@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta Principal -->
+    <color name="primary">#1E40AF</color>
+    <color name="primary_dark">#1E3A8A</color>
+    <color name="primary_light">#DBEAFE</color>
+    <color name="accent">#0284C7</color>
+
+    <!-- Superficies e Fundos -->
+    <color name="bg_screen">#F8FAFC</color>
+    <color name="bg_surface">#FFFFFF</color>
+    <color name="bg_input">#F1F5F9</color>
+
+    <!-- Tipografia e Bordas -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="border_light">#E2E8F0</color>
+
+    <!-- Estados e Badges de Leitura -->
+    <color name="danger">#DC2626</color>
+    <color name="success">#16A34A</color>
+    <color name="badge_lido_bg">#DCFCE7</color>
+    <color name="badge_lido_texto">#15803D</color>
+    <color name="badge_nao_lido_bg">#F1F5F9</color>
+    <color name="badge_nao_lido_texto">#475569</color>
+</resources>

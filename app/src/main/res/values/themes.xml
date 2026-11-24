@@ -1,9 +1,56 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.BibliotecaPessoal" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/accent_container</item>
+        <item name="colorOnSecondaryContainer">@color/on_accent_container</item>
+        <item name="android:colorBackground">@color/bg_screen</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/bg_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorOutline">@color/border_light</item>
+        <item name="colorError">@color/danger</item>
+        <item name="android:windowBackground">@color/bg_screen</item>
     </style>
 
     <style name="Theme.BibliotecaPessoal" parent="Base.Theme.BibliotecaPessoal" />
+
+    <!-- Estilo do Indicador Ativo do Menu Inferior -->
+    <style name="Widget.Biblioteca.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/nav_indicator</item>
+        <item name="android:width">60dp</item>
+        <item name="android:height">32dp</item>
+    </style>
+
+    <!-- Estilo de Chip de Filtro -->
+    <style name="Widget.Biblioteca.FilterChip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_bg_selector</item>
+        <item name="android:textColor">@color/chip_text_selector</item>
+        <item name="chipStrokeColor">@color/chip_stroke_selector</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">20dp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="chipMinHeight">36dp</item>
+    </style>
+
+    <!-- Estilo de Input Outlined Editorial -->
+    <style name="Widget.Biblioteca.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/bg_input</item>
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="hintTextColor">@color/primary</item>
+        <item name="startIconTint">@color/text_secondary</item>
+    </style>
 </resources>

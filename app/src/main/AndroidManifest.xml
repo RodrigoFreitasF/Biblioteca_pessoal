@@ -14,7 +14,8 @@
 
         <activity
             android:name=".ListaLivrosActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +25,8 @@
 
         <activity
             android:name=".CadastroLivroActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".ResumoActivity"

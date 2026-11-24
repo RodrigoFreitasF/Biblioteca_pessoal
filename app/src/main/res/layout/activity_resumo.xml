@@ -8,18 +8,18 @@
     android:background="@color/bg_screen"
     tools:context=".ResumoActivity">
 
-    <!-- Cabecalho da Tela de Resumo -->
+    <!-- Cabeçalho da Tela de Resumo -->
     <LinearLayout
         android:id="@+id/headerResumo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/primary"
-        android:elevation="4dp"
+        android:background="@drawable/bg_header_gradient"
+        android:elevation="6dp"
         android:orientation="vertical"
-        android:paddingStart="24dp"
-        android:paddingTop="28dp"
-        android:paddingEnd="24dp"
-        android:paddingBottom="20dp"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,9 +28,10 @@
             android:id="@+id/txtTituloResumo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
             android:text="@string/titulo_resumo"
-            android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textColor="@color/header_text_primary"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
         <TextView
@@ -39,86 +40,354 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/subtitulo_resumo"
-            android:textColor="@color/primary_light"
+            android:textColor="@color/header_text_secondary"
             android:textSize="13sp" />
     </LinearLayout>
 
-    <!-- Cards de Estatisticas -->
-    <LinearLayout
+    <!-- Conteúdo Responsivo com Rolagem -->
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/dividerNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerResumo">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_card_item"
-            android:elevation="2dp"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingStart="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="28dp">
 
-            <TextView
-                android:id="@+id/txtTotalLivros"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/resumo_total_livros"
-                android:textColor="@color/primary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="560dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/bg_card_item"
-            android:elevation="2dp"
-            android:orientation="vertical"
-            android:padding="20dp">
+                <!-- Card Hero: Progresso de Leitura -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/bg_surface"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/border_light"
+                    app:strokeWidth="1dp">
 
-            <TextView
-                android:id="@+id/txtLivrosLidos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/resumo_livros_lidos"
-                android:textColor="@color/success"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="22dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/bg_card_item"
-            android:elevation="2dp"
-            android:orientation="vertical"
-            android:padding="20dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtLivrosNaoLidos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/resumo_livros_nao_lidos"
-                android:textColor="@color/text_secondary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/resumo_progresso_titulo"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
 
-    </LinearLayout>
+                            <TextView
+                                android:id="@+id/txtPorcentagem"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif"
+                                android:text="0%"
+                                android:textColor="@color/primary"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/progressLeitura"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:max="100"
+                            android:progress="0"
+                            app:indicatorColor="@color/primary"
+                            app:trackColor="@color/bg_surface_variant"
+                            app:trackCornerRadius="8dp"
+                            app:trackThickness="10dp" />
+
+                        <TextView
+                            android:id="@+id/txtProgressoDetalhe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtMensagemResumo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:lineSpacingExtra="2dp"
+                            android:text="@string/resumo_msg_vazio"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Card Total de Livros -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/bg_surface"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:rippleColor="@color/primary_container"
+                    app:strokeColor="@color/border_light"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="18dp">
+
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_icon_circle_primary">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_book"
+                                app:tint="@color/primary" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/resumo_label_total"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/txtTotalLivros"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif"
+                                android:text="0"
+                                android:textColor="@color/text_primary"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Grade 2 Colunas: Lidos e Para Ler -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardLidos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="7dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/bg_surface"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:rippleColor="@color/success_container"
+                        app:strokeColor="@color/border_light"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="18dp">
+
+                            <FrameLayout
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:background="@drawable/bg_icon_circle_success">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_check_circle"
+                                    app:tint="@color/success" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/txtLivrosLidos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:fontFamily="serif"
+                                android:text="0"
+                                android:textColor="@color/success"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/resumo_label_lidos"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardNaoLidos"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/bg_surface"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp"
+                        app:rippleColor="@color/accent_container"
+                        app:strokeColor="@color/border_light"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="18dp">
+
+                            <FrameLayout
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:background="@drawable/bg_icon_circle_accent">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_bookmark_outline"
+                                    app:tint="@color/accent" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/txtLivrosNaoLidos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:fontFamily="serif"
+                                android:text="0"
+                                android:textColor="@color/accent"
+                                android:textSize="28sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/resumo_label_nao_lidos"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- Ações Rápidas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnIrEstante"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:text="@string/resumo_acao_estante"
+                        android:textAllCaps="false"
+                        android:textColor="@color/primary"
+                        app:cornerRadius="14dp"
+                        app:strokeColor="@color/primary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnIrNovoLivro"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primary"
+                        android:text="@string/resumo_acao_novo"
+                        android:textAllCaps="false"
+                        android:textColor="@color/on_primary"
+                        app:cornerRadius="14dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/dividerNav"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_subtle"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Menu Inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/bg_surface"
+        android:background="@color/bg_nav"
+        app:elevation="0dp"
+        app:itemActiveIndicatorStyle="@style/Widget.Biblioteca.BottomNav.Indicator"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

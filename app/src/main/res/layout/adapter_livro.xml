@@ -1,62 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardLivro"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="4dp"
+    android:layout_marginStart="6dp"
     android:layout_marginTop="6dp"
-    android:layout_marginEnd="4dp"
+    android:layout_marginEnd="6dp"
     android:layout_marginBottom="6dp"
-    android:background="@drawable/bg_card_item"
     android:clickable="true"
-    android:elevation="2dp"
     android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="14dp">
+    app:cardBackgroundColor="@color/bg_surface"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="2dp"
+    app:rippleColor="@color/primary_container"
+    app:strokeColor="@color/border_light"
+    app:strokeWidth="1dp">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="14dp">
 
-        <TextView
-            android:id="@+id/txtTituloLivro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@string/label_titulo"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        <!-- Miniatura de Capa / Lombada -->
+        <FrameLayout
+            android:id="@+id/capaLivro"
+            android:layout_width="46dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_book_cover">
 
-        <TextView
-            android:id="@+id/txtAutorAno"
-            android:layout_width="match_parent"
+            <View
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:background="#28FFFFFF" />
+
+            <TextView
+                android:id="@+id/txtInicialLivro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="serif"
+                android:text="L"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <!-- Metadados do Livro -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="@string/label_autor"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTituloLivro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="serif"
+                android:maxLines="2"
+                android:text="@string/label_titulo"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtAutorAno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/label_autor"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <!-- Badge Interativo (1 toque alterna status) -->
+            <TextView
+                android:id="@+id/txtStatusLido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_badge_nao_lido"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="10dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="4dp"
+                android:text="@string/status_nao_lido"
+                android:textColor="@color/badge_nao_lido_texto"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Ação Discreta de Exclusão -->
+        <ImageButton
+            android:id="@+id/btnExcluirItem"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_gravity="top"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_excluir_livro"
+            android:padding="8dp"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/text_muted" />
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtStatusLido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_badge_nao_lido"
-        android:paddingStart="10dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="4dp"
-        android:text="@string/status_nao_lido"
-        android:textColor="@color/badge_nao_lido_texto"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>

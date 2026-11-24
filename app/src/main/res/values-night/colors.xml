@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Identidade Editorial — Modo Escuro -->
+    <color name="primary">#7CC4A6</color>
+    <color name="on_primary">#0F241B</color>
+    <color name="primary_dark">#13241D</color>
+    <color name="primary_light">#A7C7B9</color>
+    <color name="primary_container">#243F34</color>
+    <color name="on_primary_container">#D5EFE3</color>
+
+    <color name="accent">#E08B5B</color>
+    <color name="accent_dark">#C47143</color>
+    <color name="accent_container">#3D281D</color>
+    <color name="on_accent_container">#F8D7C4</color>
+
+    <!-- Cabeçalho -->
+    <color name="header_bg_start">#1E392E</color>
+    <color name="header_bg_end">#14261F</color>
+    <color name="header_text_primary">#F5F2EB</color>
+    <color name="header_text_secondary">#B3CFC2</color>
+    <color name="header_search_bg">#22FFFFFF</color>
+    <color name="header_search_stroke">#33FFFFFF</color>
+    <color name="header_search_hint">#9BB8AA</color>
+
+    <!-- Superfícies e Fundos -->
+    <color name="bg_screen">#131715</color>
+    <color name="bg_surface">#1C221F</color>
+    <color name="bg_surface_variant">#262D29</color>
+    <color name="bg_input">#222925</color>
+    <color name="bg_nav">#181E1B</color>
+
+    <!-- Tipografia e Bordas -->
+    <color name="text_primary">#F3EFE7</color>
+    <color name="text_secondary">#B8B2A7</color>
+    <color name="text_muted">#827C73</color>
+    <color name="border_light">#2D3631</color>
+    <color name="divider_subtle">#27302B</color>
+
+    <!-- Estados e Badges -->
+    <color name="danger">#F87171</color>
+    <color name="danger_container">#3B1C1C</color>
+    <color name="success">#6EE7B7</color>
+    <color name="success_container">#1B3B2D</color>
+
+    <color name="badge_lido_bg">#1B3B2D</color>
+    <color name="badge_lido_texto">#86E6B8</color>
+    <color name="badge_nao_lido_bg">#3A271C</color>
+    <color name="badge_nao_lido_texto">#F2B187</color>
+    <color name="badge_nao_lido_stroke">#543828</color>
+
+    <!-- Navegação Inferior -->
+    <color name="nav_icon_active">#8CE0BC</color>
+    <color name="nav_icon_inactive">#8E8A82</color>
+    <color name="nav_indicator">#243F34</color>
+
+    <!-- Paleta de Lombadas dos Livros -->
+    <color name="spine_forest">#2E5B49</color>
+    <color name="spine_terracotta">#C26A48</color>
+    <color name="spine_slate">#45658A</color>
+    <color name="spine_burgundy">#944257</color>
+    <color name="spine_ochre">#A67B42</color>
+    <color name="spine_moss">#5E7A64</color>
+</resources>
